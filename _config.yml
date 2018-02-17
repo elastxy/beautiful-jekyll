@@ -17,15 +17,18 @@ baseurl: ""
 title: ElastXY
 
 # Short description of your site
-description: ElastXY Framework Official Site
+description: ElastXY Projects Site
 
 # --- Navigation bar options --- #
 
 # List of links in the navigation bar
 navbar-links:
-  Blog: "http://elastxy.github.io/"
-  GitHub: "https://github.com/elastxy/testxy"
-  About Me: "aboutme"
+  Blog: "http://elastxy.io/"
+#  Project:
+#    - Quick Start: "https://github.com/elastxy/docs/DOCUMENTATION.md#single-colony-tutorial"
+#    - Documentation: "documentation"
+#    - GitHub: "https://github.com/elastxy"
+  Contact: "aboutme"
 #  Resources:
 #    - ElastXY on GitHub: "http://elastxy.github.io/"
 #  Author's home: "http://deanattali.com"
@@ -64,7 +67,7 @@ footer-link-col: "#404040"
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: ElastXY Author
+  name: Gabriele Rossi
 
 # Select your active Social Network Links.
 # Uncomment the links you want to show in the footer and add your information to each link.
@@ -73,22 +76,10 @@ author:
 social-network-links:
 #  rss: true
   email: "elastxy@mail.com"
-#  facebook: daattali
   github: elastxy
   twitter: elastxy
-#  reddit: yourname
-#  google-plus: +DeanAttali
-#  linkedin: daattali
-#  xing: yourname
-#  stackoverflow: "3943160/daattali"
-#  snapchat: deanat78
-#  instagram: deanat78
-#  youtube: user/deanat78
-#  spotify: yourname
-#  telephone: +14159998888
-#  steam: deanat78
-#  twitch: yourname
-#  yelp: yourname
+  linkedin: gabrielerossi
+#  telephone: +141599999999999
 
 # Select which share links to show in posts
 share-links-active:
@@ -99,7 +90,7 @@ share-links-active:
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "elastxy.io"  # eg. "deanattali.com/beautiful-jekyll"
+url-pretty: "elastxy.io"
 
 # --- Web Statistics Section --- #
 
