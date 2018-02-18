@@ -7,6 +7,7 @@ tags: [personal, news]
 ---
 This is a personal anecdotical foreword: you'll be able to jump straight to project site to try it, run it, collaborating in one-two weeks from now, so... stay tuned!
 
+
 ### The garden problem
 
 When I started to work on this project, it was not a *project* at all.
@@ -45,13 +46,13 @@ That said, my adventure in building a **Distributed Genetic Algorithm** project 
 
 Along the road, I learnt basis of Apache Spark, rudiments of Scala language for quickly develop core parts of the algorithm on a sandbox, introduced Cassandra and Kafka for adding distributed capabilities, bought a mighty esacore home server which I happily stress, learnt virtualization techniques to build a simple cluster and finally... learnt how to publish a project and write a blog on GitHub :D
 
-I'm also working to a side-project, a site showcasing the four applications I realized firstly with my framework, which will be revealed when it's time.
-
 ### Going open-source
 
 By the way, the road to glory is long, especially if this recipe is homemade and realized overnight after daily job and family duties in a few months, so I decided to **share with community** this humble and really perfectible piece of code, and let's see what it comes.
 
 Let you know in 1-2 weeks about my framework, just let me refine code and documentation to simplify the access, and do some family&friends trials.
+
+Ah, I'm also working to a side-project, a site showcasing the four applications I realized firstly with my framework, which will be revealed when it's time.
 
 Talk soon!
 
@@ -62,4 +63,5 @@ Talk soon!
 It seems that many problems can be modeled and solved with genetic algorithms and evolutionary computing, and, given that resources are available on cloud with a modern serverless approach, they are almost infinite (limited by your wallet, in the end).
 
 On the other side, as an engineer, I'm always attracted by magic computations and heuristics, but sometimes I don't see the appropriate scope. For example, TSP problem like Sudoku solving can be better treated with other algorithms.
-Anyway, I'm not a data scientist, or a subject matter expert of everything, so I'm excused and can concentrate on how to make it happen in a configurable, scalable, secure, etc., way :)
+
+Anyway, I'm not a data scientist, or a subject matter expert of everything, so I hope I'm excused and can concentrate on how to make it happen in a configurable, scalable, secure, etc., way :)
