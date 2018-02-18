@@ -24,7 +24,7 @@ Next, I'd like to study more Reactive Manifesto and related techniques, which I'
 
 ### Personal bio
 
-My name is Gabriele Rossi and I'm the author of ElastXY projects, which I started after being exposed to SMACK stack (and to my wife kisses, see [first post]({% post_url 2018-02-17-elastxy-taking-off %})).
+My name is Gabriele Rossi and I'm the author of ElastXY projects, which I started after being exposed to SMACK stack (and to my wife kisses, see [first post]({% post_url 2018-02-18-elastxy-taking-off %})).
 
 I'm a passionate software engineer and from time to time Scrum Master, Project Manager, DevOps.
 Beyond roles and assignments, I like to see healthy projects and organizations, and collaborate with motivated people to build high-performing Teams (mainly Agile).
