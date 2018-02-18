@@ -3,7 +3,7 @@ layout: post
 title: Day 18022018... taking off!
 subtitle: First nearly-palindrome post, few days to go live
 bigimg: /img/garden.jpg
-tags: [communication]
+tags: [personal, news]
 ---
 This is a personal anecdotical foreword: you'll be able to jump straight to project site to try it, run it, collaborating in one-two weeks from now, so... stay tuned!
 
@@ -59,7 +59,7 @@ Talk soon!
 
 #### Disclaimer
 
-It seems that many problems can be modeled and solve with genetic algorithms and evolutionary computing, and, given that resources are available on cloud with a modern serverless approach, they are almost infinite (limited by your wallet, in the end).
+It seems that many problems can be modeled and solved with genetic algorithms and evolutionary computing, and, given that resources are available on cloud with a modern serverless approach, they are almost infinite (limited by your wallet, in the end).
 
 On the other side, as an engineer, I'm always attracted by magic computations and heuristics, but sometimes I don't see the appropriate scope. For example, TSP problem like Sudoku solving can be better treated with other algorithms.
 Anyway, I'm not a data scientist, or a subject matter expert of everything, so I'm excused and can concentrate on how to make it happen in a configurable, scalable, secure, etc., way :)
