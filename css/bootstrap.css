@@ -1516,8 +1516,10 @@ samp {
 code {
   padding: 2px 4px;
   font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
+  /*color: #c7254e;*/
+  color: #007700;
+  /*background-color: #f9f2f4;*/
+  background-color: #f2f4f9;
   border-radius: 4px;
 }
 kbd {
