@@ -4,7 +4,7 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "http://elastxy.github.io"
+url: "http://elastxy.io"
 baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
@@ -23,15 +23,17 @@ description: ElastXY Projects Site
 
 # List of links in the navigation bar
 navbar-links:
-  Blog: "http://elastxy.io/"
-#  Project:
-#    - Quick Start: "https://github.com/elastxy/docs/DOCUMENTATION.md#single-colony-tutorial"
-#    - Documentation: "documentation"
-#    - GitHub: "https://github.com/elastxy"
+  Blog: "index.html"
+  Project:
+    - Introduction: "documentation#introduction"
+    - Quick Start: "documentation#quick-start"
+    - Documentation: "documentation"
+    - GitHub: "https://github.com/elastxy/elastxy-framework"
+  Tutorials:
+    - Spark Installation: "sparkforelastxy"
+    - Single Colony: "documentation#single-colony-tutorial"
+    - Multi Colony: "documentation#multi-colony-tutorial"
   Contact: "aboutme"
-#  Resources:
-#    - ElastXY on GitHub: "http://elastxy.github.io/"
-#  Author's home: "http://deanattali.com"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
