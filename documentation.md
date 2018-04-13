@@ -185,27 +185,13 @@ The example will show you a little more complex showcase `Application`, and how 
 
 As a prerequisite, we assume you have cloned ElastXY and compiled modules to a `ELASTXY_HOME` directory as a part of first example.
 
-Please note that to keep example as simple as possible, we will run Apache Spark cluster with a minimal setup in a Standalone mode cluster with all production settings turned off (e.g. security, cluster managemet or async messaging). For a meaningful setup, please look at Documentation, "Setting up a Cluster". 
+Please note that to keep example as simple as possible, we will run Apache Spark cluster with a minimal setup in a Standalone mode cluster with all production settings turned off (e.g. security, cluster managemet or async messaging). For a meaningful setup, please look at Documentation, "Setting up a Cluster" (TODO). 
 
-#### Step 1: Install Apache Spark
+#### Step 1: Install and run Apache Spark
 
-- Download Apache Spark version "spark-2.2.0-bin-hadoop2.7" from [download site](https://spark.apache.org/downloads.html)
-- Unzip in a directory of your choice, our `<SPARK_HOME>`
-- Copy Spark configurations `spark-defaults.conf` from `elastxy-web/conf` to `<SPARK_HOME>/conf`
-- Open `spark-defaults.conf` and change local paths inside file according to your system
+Please follow [detailed instructions here](sparkforelastxy.md).
 
-
-#### Step 2: Run Apache Spark
-
-- Get into ElastXY modules project root `<ELASTXY_HOME>` (directory where you cloned and compiled ElastXY modules) 
-- From `elastxy-web/conf` Copy scripts `run-master.cmd` and `run-master.cmd` to `<SPARK_HOME>/bin` directory.
-- `run-master.cmd`: open the file and change the parameter `--webui-port` if you have processes that already use that port.
-- `run-worker.cmd`: open the file and set local hostname or IP address (127.0.0.1 on localhost), and review available cores (-c) and memory (-m) parameters based on your machine capacity.
-- Run master script one time and worker two times: you should have an Apache Spark Driver up and running, with a Driver listening to default port 7077, and two Agents working for you accepting jobs!
-
-For more detailed instructions please read [detailed explanation here](sparkforelastxy.md).
-
-#### Step 3: Run ElastXY in distributed mode
+#### Step 2: Run ElastXY in distributed mode
 
 Two words explanation: ElastXY web application API will run a simple benchmark application requesting execution to Spark Driver, which in turn will delegate Workers the hard job until an end condition or a best match `Solution` are found.
 
@@ -405,7 +391,9 @@ Also, `EnvObserver` can be instructed to send asynchronous messages for coarse o
 
 
 ### Architecture
-A detailed architecture diagram is shown in technical reference documentation [TBD]
+A detailed architecture component diagram is shown here below, showing modules and interactions.
+
+![Architecture Component Diagram](/img/architecture-components.png)
 
 #### Modules
 The main components of the framework, from a deployment perspective, are:
