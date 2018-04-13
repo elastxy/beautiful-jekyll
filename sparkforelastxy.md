@@ -5,28 +5,28 @@ subtitle: Spark for ElastXY installation the easy way
 bigimg: /img/documentation.jpg
 ---
 
-# Spark installation the easy way
+## Spark installation the easy way
 
 Here below some useful files to make the access to Spark easy for ElastXY users.
 
 These are only sample files: please change configurations according to your environment.
 
-## Pre-requisites
+### Pre-requisites
 
 You should already have built ElastXY locally from sources, as explained on [documentation](/documentation#build-from-sources).
 
 
-## WINDOWS OS
+### WINDOWS OS
 
 Tested with Windows 10 Professional, Windows 8.1.  
 
-### Step 1: Install Apache Spark
+#### Step 1: Install Apache Spark
 
 - Download Apache Spark version "spark-2.2.0-bin-hadoop2.7" from [download site](https://spark.apache.org/downloads.html).
 - Unzip in a directory of your choice, our `<SPARK_HOME>`.
   
 
-### Step 2: Configure Apache Spark
+#### Step 2: Configure Apache Spark
 
 Spark example basic configurations are provided with ElastXY project: log4j.properties, spark-defaults.conf.
 
@@ -38,7 +38,7 @@ For using them:
 - Optionally, open `<SPARK_HOME>/conf/log4j.properties` and change log4j configurations as you like.
 
 
-### Step 3: Run Apache Spark
+#### Step 3: Run Apache Spark
 
 Spark executables scripts are provided with ElastXY project as Windows commands to run a Spark Standalone Cluster.
 
@@ -58,13 +58,13 @@ To verify, please point with browser to:
 You should see Apache Spark manager console up and running.
 
 
-## UNIX BASED OS
+### UNIX BASED OS
 
 Tested with CentOS 7.1.
 
 UNIX based systems have a similar procedure, please use ".sh" files instead of ".cmd" and you should be done!
 TODO 
 
-## Back to Multicolony tutorial
+### Back to Multicolony tutorial
 
-Now, you can go on with the [Multicolony tutorial](/documentation#multi-colony-tutorial).
+Now, you can go on with the [Multicolony tutorial](/documentation#multi-colony-tutorial) and see distributed ElastXY in action!
