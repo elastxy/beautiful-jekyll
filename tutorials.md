@@ -14,7 +14,7 @@ bigimg: /img/documentation.jpg
 ## Quick Start
 These instructions will get you a copy of the project up and running on your local machine for showcasing basic features, development and testing purposes.
 
-A Deployment section will be provided with notes on how to deploy the project on a live and distributed system.
+A Deployment section will be provided in the future with notes on how to deploy the project on a live and distributed system.
 
 ### Prerequisites
 - JDK 8/9
@@ -22,13 +22,17 @@ A Deployment section will be provided with notes on how to deploy the project on
 
 ### Build from sources
 *Approx time: 5'*
-1. Clone or download the latest version of ElastXY Framework to a directory of your choice:
+1. Enter a directory of your choice (<ELASTXY_HOME>), and clone or download the latest version of ElastXY Framework:
 
-`git clone https://github.com/elastxy-projects/elastxy.git <ELASTXY_HOME>`
+`git clone https://github.com/elastxy/elastxy-framework.git`
 
-2. Change directory to \<ELASTXY_HOME\> and issue a Maven build:
+2. Change directory to \<ELASTXY_HOME\>/elastxy-framework and issue a Maven build:
 
-`maven clean install`
+`mvn clean install`
+
+It'll take a while, as there are many dependencies for enabling all framework features. Next, you should see something like this:
+
+<img src="/img/build-successful.png" />
 
 Now you should have all ElastXY artifacts in your local Maven repo. Congratulations! :)
 
