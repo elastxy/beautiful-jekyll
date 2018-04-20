@@ -36,12 +36,11 @@ It'll take a while, as there are many dependencies for enabling all framework fe
 
 Now you should have all ElastXY artifacts in your local Maven repo. Congratulations! :)
 
-(And maybe you already spotted an ASCII representations of system evolution as long as tests were executed..)
 
 ## Single Colony Tutorial
 *Approx time: 10-15'*
 
-### Build your own local StartApp
+### Build your own local first app: MathXY
  
 The example will show you a simple showcase `Application`, and how to create your own project for a local (non distributed) env.
 
@@ -57,7 +56,7 @@ You can start defining your own by creating a Maven project from a blueprint by 
 
 `mvn archetype:generate -DarchetypeGroupId=org.elastxy -DarchetypeArtifactId=elastxy-app-archetype -DarchetypeVersion=0.1.0-SNAPSHOT`
 
-When prompted, insert "com.acme" as groupId and "ElastXYApp" as artifactId, leaving default package and version.
+When prompted, insert "com.acme" as groupId and "MathXY" as artifactId, leaving default package and version (by always hitting Enter).
 
 Now you should see a simple Maven project structure, bundling an initial example `Application`.
 
@@ -85,24 +84,26 @@ And, of course you can start playing with other parameters around, if you please
 
 The `Experiment` is where the execution `Environment` resides, controls program flow until ended, and returns outcomes as `Results` and `ExperimentStats`.
 
-It's time to build and test an execution: let's look it at work! Type:
+It's time to build and test an execution: let's look it at work!
+
+Please enter in the root directory of your app project (let's say 'MathXY' directory), and type:
 
 ```mvn test```
 
 Application is bootstrapped and launched:
 ```
-23:45:50.200 [main] INFO ... .AppBootstrap - Applications found: [StartApp]
-23:45:50.200 [main] INFO ... .AppBootstrap - >> Bootstrapping application 'StartApp'
+23:45:50.200 [main] INFO ... .AppBootstrap - Applications found: [MathXY]
+23:45:50.200 [main] INFO ... .AppBootstrap - >> Bootstrapping application 'MathXY'
 23:45:50.200 [main] INFO ... .AppBootstrap -    Building components..
 23:45:50.225 [main] INFO ... .AppBootstrap -    Wiring components..
 23:45:50.225 [main] INFO ... .AppBootstrap -    Initializing components..
-23:45:50.226 [main] INFO ... .AppBootstrap -    Welcome to 'StartApp' application! <!!!>o
+23:45:50.226 [main] INFO ... .AppBootstrap -    Welcome to 'MathXY' application! <!!!>o
 23:45:50.226 [main] INFO ... .AppBootstrap - Bootstrap ElastXY DONE.
 ```
 
 ### Step 4: See the results
 
-After about 3" execution, you will notice an output similar to this one, much depending on how much you were lucky:
+After at most 3" execution, you will notice an output similar to this one, much depending on how much you were lucky:
 ```
 [1] elastxy>         |0---10---20---30---40---50---60---70---80---90---100
 [1] elastxy>        1|--------------------------------------------------- | 0.9999999945 |SOL:Ge[[(P:0,M:operand)-158441, (P:1,M:operator)+, (P:2,M:operand)387971]] > Ph[(NumberPhenotype) 229530] > F[Value: 0.99999999453000128545, Check: true]
@@ -124,20 +125,20 @@ Basically, ElastXY is saying:
 > 
 > 582896 + (-346896) = 235000
 
-This is your first ElastXY `Application`! Good job! :sparkles:
+This is your first ElastXY `Application`! Good job! :D
 
 ### Bonus Step 5: Play with `Genes` metadata
 If you had a look to following file, you may have seen an interesting feature:
 
 `src/main/resources/genes.json`
 
-Representation of this problem schemata* is entirely based on metadata: for example, you can see definition of genes composing the chromosomes as two user-defined type: "operand" and "operator".
+Representation of this problem schemata [\*] is entirely based on metadata: for example, you can see definition of genes composing the chromosomes as two user-defined type: "operand" and "operator".
 
 If you reduce available operators `Gene` to "*" and "\\" and relaunch the execution, you may notice how it's more difficult the job, even converging.
 
-`mvn test`
+```mvn test```
 
-**: schemata are minimal evolving genetic material strings the algorithm is based on, typically group of genes, like chromosomes*
+[\*]: schemata are minimal evolving genetic material strings the algorithm is based on, typically group of genes, like *chromosomes*
 
 ## Multi Colony Tutorial
 *Approx time: 20-30'*
