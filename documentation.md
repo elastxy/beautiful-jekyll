@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Documentation
-subtitle: ElastXY all in one doumentation page
+subtitle: ElastXY all in one documentation page
 bigimg: /img/documentation.jpg
 ---
 

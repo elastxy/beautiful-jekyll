@@ -51,7 +51,7 @@ Here `Target` is a 64bit integer belonging to [-1000000;+1000000] interval, so w
 The core concept of ElastXY is `Application`.
 You can start defining your own by creating a Maven project from a blueprint by running following command in an empty directory of your choice:
 
-`mvn archetype:generate -DarchetypeGroupId=org.elastxy -DarchetypeArtifactId=elastxy-app-archetype -DarchetypeVersion=1.0.0-SNAPSHOT`
+`mvn archetype:generate -DarchetypeGroupId=org.elastxy -DarchetypeArtifactId=elastxy-app-archetype -DarchetypeVersion=0.1.0-SNAPSHOT`
 
 When prompted, insert "com.acme" as groupId and "ElastXYApp" as artifactId, leaving default package and version.
 
