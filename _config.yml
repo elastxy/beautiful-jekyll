@@ -30,7 +30,7 @@ navbar-links:
     - Documentation: "documentation"
     - GitHub: "https://github.com/elastxy/elastxy-framework"
   Tutorials:
-    - Spark Installation: "sparkforelastxy"
+    - Install Spark: "sparkforelastxy"
     - Single Colony: "tutorials#single-colony-tutorial"
     - Multi Colony: "tutorials#multi-colony-tutorial"
   Contact: "aboutme"
