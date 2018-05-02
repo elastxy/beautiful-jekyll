@@ -195,11 +195,11 @@ Note2: we haven't configured messaging system for this example, so we communicat
 
 #### Instructions
 
-1) Point to `elastxy-framework/elastxy-web` directory.
-2) Open file `elastxy-web/src/main/resources/distributed.properties`
+1) Point to `elastxy-framework/elastxy-web` directory.  
+2) Open file `elastxy-web/src/main/resources/distributed.properties`  
 3) Change properties accordingly to your environment settings. Please note that for results to be returned by APIs, the `webapp.inbound.path` must be identical to `driver.outbound.path`.  
 An important property to change is where the MathXYM uberjar resides, e.g.:  
-`spark.app.jar.path=file:///c:/dev/workspaces/ws_ga/test/MathXYM/target/MathXYM-1.0-SNAPSHOT.jar`
+`spark.app.jar.path=file:///c:/dev/workspaces/ws_ga/test/MathXYM/target/MathXYM-1.0-SNAPSHOT.jar`  
 4) Open file `elastxy-web/pom.xml` and uncomment dependency marked with *UNCOMMENT_THIS*
 ```
 <dependency>
