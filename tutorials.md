@@ -148,6 +148,8 @@ If you reduce available operators `Gene` to "*" and "\\" and relaunch the execut
 
 ### Create your first distributed ElastXY app
 
+**IMPORTANT**: tutorial is under development, and will be working when at least a distributed application (e.g. expressions_d) and/or archetype will provided in days. 
+
 The example will show you a little more complex showcase `Application`, and how to run it on a local **Apache Spark** cluster.
 
 As a prerequisite, we assume you have cloned ElastXY and compiled modules to a `ELASTXY_HOME` directory as a part of first example.
