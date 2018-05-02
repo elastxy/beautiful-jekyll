@@ -83,8 +83,8 @@ REST APIs for:
 * some monitoring and health-checks
 
 Development support features:
-* example applications to showcase common use cases
-* application templates via Maven archetype
+* application templates via Maven archetypes
+* TODO: example applications to showcase common use cases
 * APIs documentation via [Swagger UI](https://swagger.io/swagger-ui/) and [Postman](https://www.getpostman.com/) collections
 
 ## Roadmap
@@ -203,19 +203,36 @@ For example, one can need an html template representation for a web site.
 
 Also, `EnvObserver` can be instructed to send asynchronous messages for coarse or fine tracking of executions.
 
+An important distinction at this stage is, two different distributed flavours can be adopted:
+- **execution only (XO)**, where only elaborations are made in memory in Spark nodes.
+- **with data**, where elaborations and data are partitioned and executed on Spark nodes via RDD.
+Specific templates via Maven archetypes can be used for this purpose. See [10' Single Colony Tutorial](http://elastxy.io/tutorials/#single-colony-tutorial) for a basic usage.
 
 ### Architecture
 A detailed architecture component diagram is shown here below, showing modules and interactions.
 
 ![Architecture Component Diagram](/img/architecture-components.png)
 
+
+#### Repositories
+* **elastxy-framework**: framework repository, with core engine, APIs and distributed basic components. Sample Maven archetypes are also provided for start coding in a minute with basic local and distributed applications.
+* **elastxy-applications** (TODO): module with a number of sample working applications covering main standard use cases, which can be run both locally and distributed.
+
 #### Modules
 The main components of the framework, from a deployment perspective, are:
 * **elastxy-core**: module containing the **Genetics Algorithm Engine** with logics, domain and metadata, plus application components and configurations, interfaces and standard implementations, tools for rendering, collecting statistics, etc. 
 * **elastxy-web**: the web application publishes all APIS and controls local and distributed `Experiment` executions, running cluster Driver and returning results.
 * **elastxy-distributed**: the module containing the distributed algorithm parts, to be executed on the cluster driver and executors.
-* **elastxy-applications**: module with a number of sample working applications covering main standard use cases, which can be run both locally and distributed.
-* **elastxy-maven-archetype**: sample Maven archetype for start coding in a minute with basic local application
+
+#### Templates
+
+Templates are made via **Maven Archetypes**.
+
+For a detailed explanation on how they work, please read following tutorials:
+- **elastxy-singlecolony-archetype**: Single Colony Archetype,  see [10' Single Colony Tutorial](http://elastxy.io/tutorials/#single-colony-tutorial) for building your own app for local execution.
+- **elastxy-multicolony-xo-archetype**: Multi Colony Execution-Only (XO) Archetype, see [20' Multi Colony Tutorial](http://elastxy.io/tutorials/#multi-colony-tutorial) for building a sample distributed application.
+- **elastxy-multicolony-data-archetype** (TODO): Multi Colony Data Archetype, it's an extension of Multi Colony XO, with specific data management components declared.
+
 
 #### Runtime
 Locally, a Spring Boot **Web Application** exposes APIs for running ElastXY applications. Examples are available as Postman Collections and documented via Swagger API Documentation.

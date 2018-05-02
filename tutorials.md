@@ -8,6 +8,7 @@ bigimg: /img/documentation.jpg
 ## Table of contents
 
 - [Quick start](#quick-start)
+- [Build from sources](#build-from-sources)
 - [Single Colony tutorial](#single-colony-tutorial)
 - [Multi Colony tutorial](#multi-colony-tutorial)
 
@@ -30,7 +31,7 @@ A Deployment section will be provided in the future with notes on how to deploy 
 
 `mvn clean install`
 
-It'll take a while, as there are many dependencies for enabling all framework features. Next, you should see something like this:
+It'll take a while, as there are many dependencies for enabling all framework features some testing. Next, you should see something like this:
 
 <img src="/img/build-successful.png" />
 
@@ -38,9 +39,10 @@ Now you should have all ElastXY artifacts in your local Maven repo. Congratulati
 
 
 ## Single Colony Tutorial
-*Approx time: 10-15'*
+*Approx time: 10-15'*  
+*Prerequisites*: [Build from sources](#build-from-sources) section.
 
-### Build your own local first app: MathXY
+### Create your own local first app: MathXY
  
 The example will show you a simple showcase `Application`, and how to create your own project for a local (non distributed) env.
 
@@ -54,18 +56,18 @@ Here `Target` is a 64bit integer belonging to [-1000000;+1000000] interval, so w
 The core concept of ElastXY is `Application`.
 You can start defining your own by creating a Maven project from a blueprint by running following command in an empty directory of your choice:
 
-`mvn archetype:generate -DarchetypeGroupId=org.elastxy -DarchetypeArtifactId=elastxy-app-archetype -DarchetypeVersion=0.1.0-SNAPSHOT`
+`mvn archetype:generate -DarchetypeGroupId=org.elastxy -DarchetypeArtifactId=elastxy-singlecolony-archetype -DarchetypeVersion=0.1.0-SNAPSHOT`
 
-When prompted, insert "com.acme" as groupId and "MathXY" as artifactId, leaving default package and version (by always hitting Enter).
+When prompted, insert "com.acme" as groupId and 'MathXY' as artifactId, leaving default package and version (by always hitting Enter).
 
-Now you should see a simple Maven project structure, bundling an initial example `Application`.
+Now you should see a simple Maven project structure, bundling an initial example `Application` named "MathXY".
 
 ### Step 2: Change default `Target` value
 
 Every `Application` comes with a `Benchmark` configuration for testing algorithm performance after any parameters change. Think of it as our default values, for now.
 
 Default `Target` for this `Application` is 235000, as you can see in configuration file here:
-`src/main/resources/benchmark.json`
+`src/main/resources/singlecolony/benchmark.json`
 
 For the sake of curiosity, you can also set your own magic number, opening configuration file and putting your number (say 777) near target parameter:
 
@@ -141,32 +143,77 @@ If you reduce available operators `Gene` to "*" and "\\" and relaunch the execut
 [\*]: schemata are minimal evolving genetic material strings the algorithm is based on, typically group of genes, like *chromosomes*
 
 ## Multi Colony Tutorial
-*Approx time: 20-30'*
+*Approx time: 20-30'*  
+*Prerequisites*: [Build from sources](#build-from-sources) section.
 
-### Build your first distributed ElastXY app
+### Create your first distributed ElastXY app
 
 The example will show you a little more complex showcase `Application`, and how to run it on a local **Apache Spark** cluster.
 
 As a prerequisite, we assume you have cloned ElastXY and compiled modules to a `ELASTXY_HOME` directory as a part of first example.
 
-Please note that to keep example as simple as possible, we will run Apache Spark cluster with a minimal setup in a Standalone mode cluster with all production settings turned off (e.g. security, cluster managemet or async messaging). For a meaningful setup, please look at Documentation, "Setting up a Cluster" (TODO). 
+Please note that to keep example as simple as possible, we will run Apache Spark cluster with a minimal setup in a Standalone mode cluster with all production settings turned off (e.g. security, cluster managemet or async messaging). For a more meaningful setup, please look at Documentation, "Setting up a Cluster" (TODO). 
 
 ### Step 1: Install and run Apache Spark
 
 Please follow [detailed instructions here](sparkforelastxy.md).
 
-### Step 2: Run ElastXY in distributed mode
+### Step 2: Create the `Application`
 
-Two words explanation: ElastXY web application API will run a simple benchmark application requesting execution to Spark Driver, which in turn will delegate Workers the hard job until an end condition or a best match `Solution` are found.
+Differently from [Single Colony](#single-colony-tutorial) tutorial, here we use another archetype, for distributed "execution only" applications.
+Execution only means no data is distributed with this execution context, but only elaborations, which are then sum up at the Driver.  
+The other with partitioned data is called 'Multi Colony Data' and a dedicated tutorial will be published.
 
-Then, results is collected by Spark Driver from Workers and made it available to web application to be returned to User.
-(We haven't configured messaging system for this example, so we communicate by means of temp messages on shared local directory on file system).
+You can start defining your own by creating a Maven project from a blueprint by running following command in an empty directory of your choice:
 
-- Open file `elastxy-web/src/main/resources/distributed.properties`
-- Change properties accordingly to your environment settings. Please note that for results to be returned by APIs, the `webapp.inbound.path` must be identical to `driver.outbound.path`, as explained above.
-- Execute following Maven command:
+`mvn archetype:generate -DarchetypeGroupId=org.elastxy -DarchetypeArtifactId=elastxy-multicolony-xo-archetype -DarchetypeVersion=0.1.0-SNAPSHOT`
 
-`mvn exec:java -Dexec.mainClass="org.elastxy.web.application.ElastXYWebApplication"`
+When prompted, insert "com.acme" as groupId and 'MathXYM' (\*) as artifactId, leaving default package and version by always hitting Enter.  
+(*) 'M' stays for Multicolony :)
+
+Now you should see a simple Maven project structure, bundling an initial example `Application` named "MathXYM".
+
+Enter "MathXYM" root dir, and issue a build:
+
+`mvn install`
+
+Now, you should see two JARs files into target directory:  
+- `original-MathXYM-1.0-SNAPSHOT.jar`: the JAR file containing your application specific logics and configurations.
+- `MathXYM-1.0-SNAPSHOT.jar`: the "uberjar" with your app, packed with all needed dependencies for a distributed execution.
+
+
+### Step 3: Run ElastXY in distributed mode
+
+#### Two words explanation
+- we will start ElastXY Web Application on 8080 port
+- we will call a REST API that will run a simple benchmark execution of 'MathXYM'
+- execution will be requested to Spark Driver, which in turn will delegate Workers the hard job until an end condition OR a best match `Solution` are found
+- finally, results are collected by Spark Driver from Workers and made it available to web application to be returned to User.  
+
+Note1: no parameters are passed, so only default input residing in `benchmark.json` for now.  
+Note2: we haven't configured messaging system for this example, so we communicate by means of temp messages on shared local directory on file system.
+
+#### Instructions
+
+1) Point to `elastxy-framework/elastxy-web` directory.
+2) Open file `elastxy-web/src/main/resources/distributed.properties`
+3) Change properties accordingly to your environment settings. Please note that for results to be returned by APIs, the `webapp.inbound.path` must be identical to `driver.outbound.path`.  
+An important property to change is where the MathXYM uberjar resides, e.g.:  
+`spark.app.jar.path=file:///c:/dev/workspaces/ws_ga/test/MathXYM/target/MathXYM-1.0-SNAPSHOT.jar`
+4) Open file `elastxy-web/pom.xml` and uncomment dependency marked with *UNCOMMENT_THIS*
+```
+<dependency>
+	<groupId>com.acme</groupId>
+	<artifactId>MathXYM</artifactId>
+	<version>1.0-SNAPSHOT</version>
+</dependency>
+```
+5) Issue a `mvn install` command to refresh the configuration file and repackage.
+6) Execute following command for running the web application, with MathXYM application on classpath:
+
+`mvn spring-boot:run -Drun.arguments="--messaging.enabled=false,--spring.profiles.active=local,--web.security.enabled=false"`
+
+**IMPORTANT** We are explicitly setting parameters for local env, telling ElastXY to run a local execution, disable message broker and *disable websecurity*! Be aware of that, and look into documentation for properties to setup.
 
 You should see SpringBoot web application bootstrapped with all showcase applications running on port 8080:
 ```
@@ -174,11 +221,11 @@ You should see SpringBoot web application bootstrapped with all showcase applica
 ... : Started ElastXYWebApplication in 19.14 seconds (JVM running for 20.543)
 ```
 
-- A [Swagger UI](http://localhost:8080/swagger-ui.html#/) is available when running locally (to be further polished)
+6. You can check that it's up and running pointing you browser to [monitor API](http://localhost:8080/monitor/info). A [Swagger UI](http://localhost:8080/swagger-ui.html#/) is also available when running locally (to be further polished).
 
-- Call following APIs to run your local cluster, from a web browser address bar or your favourite HTTP client:
+7. Call following APIs to run your local cluster, from a web browser address bar or your favourite HTTP client:
 
-`http://localhost:8080/distributed/local/experiment/expressions_d`
+`http://localhost:8080/distributed/local/test/MathXYM`
 
 Note: you can also import ready-to-go ElastXY Postman collection from `<ELASTXY_HOME>/src/main/resources`.
 
